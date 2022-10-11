@@ -7813,7 +7813,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	            console.log(this.name + " Posting message:");
 	            console.log(JSON.stringify(message, null, '  '));
 	        }
-	        targetWindow.postMessage(message, "*");
+	    	if(targetWindow){
+	            targetWindow.postMessage(message, "*");
+		}
 	        var deferred = WindowPostMessageProxy.createDeferred();
 	        this.pendingRequestPromises[trackingProperties.id] = deferred;
 	        return deferred.promise;
@@ -7828,7 +7830,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	            console.log(this.name + " Sending response:");
 	            console.log(JSON.stringify(message, null, '  '));
 	        }
-	        targetWindow.postMessage(message, "*");
+	    	if(targetWindow){
+	            targetWindow.postMessage(message, "*");
+		}
 	    };
 	    /**
 	     * Message handler.
